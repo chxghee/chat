@@ -1,0 +1,19 @@
+services:
+  redis-server:
+    image: redis
+    ports:
+      - 6379:6379
+    container_name: redis-server
+    volumes:
+      - ./config/redis.conf:/usr/local/etc/redis/redis.conf
+    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+
+  mysql-server:
+    image: mysql:8.0.42
+    environment:
+      MYSQL_ROOT_PASSWORD: asd123
+    ports:
+      - 3306:3306
+    container_name: mysql-server
+    volumes:
+      - ./mysql_data:/var/lib/mysql
