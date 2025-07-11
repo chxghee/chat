@@ -37,7 +37,7 @@ public class JwtAuthFilter extends GenericFilter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
-        if (request.getRequestURI().startsWith("/member/sign-up") || request.getRequestURI().startsWith("/member/login")) {
+        if (request.getRequestURI().startsWith("/member/sign-up") || request.getRequestURI().startsWith("/member/login") || request.getRequestURI().startsWith("/connect")) {
             filterChain.doFilter(request, response); // 그냥 통과
             return;
         }
