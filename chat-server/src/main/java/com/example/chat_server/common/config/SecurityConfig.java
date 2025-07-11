@@ -38,7 +38,7 @@ public class SecurityConfig {
                 .httpBasic(AbstractHttpConfigurer::disable) // http basic 보안 인증 비활성화
 
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/member/sign-up", "/member/login", "/connect").permitAll()        // 인증처리 제외 uri 설정
+                        .requestMatchers("/member/sign-up", "/member/login", "/connect/**").permitAll()        // 인증처리 제외 uri 설정
                         .anyRequest().authenticated()
                 )
 
